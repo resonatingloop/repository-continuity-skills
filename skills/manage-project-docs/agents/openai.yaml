@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage Project Docs"
+  short_description: "Keep repository documentation continuous"
+  default_prompt: "Use $manage-project-docs to choose and run the appropriate documentation lifecycle workflow for this repository."
