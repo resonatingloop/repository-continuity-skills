@@ -8,10 +8,8 @@
 
 ## Verified checkpoint
 
-Close now files a STATUS snapshot and a conversational report, not a session
-memoir. Checker warns on `VERIFICATION.md`, extra STATUS headings, and more
-than two STATUS fences. One close eval (lantern JSON slice) failed compactness
-under the previous close text and passed under this branch.
+`specs/003-close-checkpoint-not-memoir.md` is accepted and retired. Close
+files a STATUS snapshot and a conversational report.
 
 Verification performed:
 
@@ -23,7 +21,7 @@ python3 skills/manage-project-docs/scripts/check_docset.py .
 Evidence of success:
 
 ```text
-6 tests OK; check_docset 0 errors; private close eval: updated skill 8/8, current skill failed compactness/transcript
+6 tests OK; check_docset 0 errors
 ```
 
 ## Working now
@@ -34,23 +32,20 @@ Evidence of success:
 
 ## Incomplete or broken
 
-- `specs/003-close-checkpoint-not-memoir.md` is still draft
 - `specs/002-portable-eval-harness.md` is still draft
 - Close eval is one run per condition, not a three-run benchmark
 - Plan and Promote remain untested in the field
 - `/specs` and `/skills-claude` are gitignored; Claude router edits are local only
-- No GitHub remote work in this slice
 
 ## Active work
 
 - Accepted spec: none
-- Current focus: branch `close-checkpoint-not-memoir`
-- Blockers: owner accept/revise/reject spec 003
+- Current focus: none
+- Blockers: none
 
 ## Next useful action
 
-Accept, revise, or reject `specs/003-close-checkpoint-not-memoir.md`, then
-merge or continue the branch.
+Decide on `specs/002-portable-eval-harness.md` (accept, revise, or reject).
 
 ## Re-entry notes
 
