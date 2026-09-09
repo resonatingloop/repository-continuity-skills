@@ -2,7 +2,7 @@
 
 > **Continuity role:** historical rationale and supersession
 > **Status:** append-only
-> **Last verified:** 2026-07-15
+> **Last verified:** 2026-09-08
 > **Owns:** consequential choices another maintainer should not have to re-derive
 > **Update when:** a decision introduces, clarifies, or supersedes a durable fact
 
@@ -151,3 +151,30 @@ Consequences:
   references portable.
 - Installation for Claude Code must dereference symlinks, and tooling that
   mishandles symlinked directories will see the Claude variant as incomplete.
+
+## D-007 — Close files a checkpoint, not the session
+
+- Date: 2026-09-08
+- Status: accepted
+- Supersedes: none
+- Related spec: `specs/003-close-checkpoint-not-memoir.md`
+
+Context:
+
+Close had no stop-writing rule. Agents kept contracts and proofs sound, then
+filed session affidavits into STATUS or extra memoir files. The owner still
+could not re-enter without reading a defense of the last turn. Documentation
+is for the owner and future agents, not a public contributor by default.
+
+Decision:
+
+STATUS is overwritten as a snapshot (commands + one result). The close report
+stays in the conversation. README moves only when use moves. One fact, one
+owner. The checker warns on `VERIFICATION.md`, extra STATUS headings, and
+STATUS transcripts (more than two fenced blocks).
+
+Consequences:
+
+- Close evals grade snapshot shape, not merely "STATUS was touched."
+- Historical `VERIFICATION.md` files warn rather than fail.
+- `TESTING.md` is not banned; it is not a close output.

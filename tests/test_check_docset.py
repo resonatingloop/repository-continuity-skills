@@ -57,6 +57,26 @@ class CheckDocsetTests(unittest.TestCase):
         self.assertIn("CONTRACTS.md", result.stdout)
         self.assertIn("required document is missing", result.stdout)
 
+    def test_close_residue_is_warned_not_failed(self) -> None:
+        result = run_checker("close-residue")
+
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("VERIFICATION.md is not a model document", result.stdout)
+        self.assertIn("STATUS.md owns the checkpoint", result.stdout)
+        self.assertIn("unexpected STATUS heading", result.stdout)
+        self.assertIn("Depth pass — 2026-09-08", result.stdout)
+        self.assertIn("extra Verified checkpoint section", result.stdout)
+        self.assertIn("session transcript", result.stdout)
+        self.assertNotIn("[ERROR]", result.stdout)
+
+    def test_healthy_fixture_has_no_close_residue_warnings(self) -> None:
+        result = run_checker("healthy")
+
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn("VERIFICATION.md is not a model document", result.stdout)
+        self.assertNotIn("unexpected STATUS heading", result.stdout)
+        self.assertNotIn("extra Verified checkpoint section", result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

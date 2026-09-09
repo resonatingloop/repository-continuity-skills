@@ -2,7 +2,7 @@
 
 > **Continuity role:** normative invariants
 > **Status:** current
-> **Last verified:** 2026-07-15
+> **Last verified:** 2026-09-08
 > **Owns:** confirmed promises the public skill must not drift from casually
 > **Update when:** an authorized decision changes an invariant or its proof
 
@@ -30,6 +30,7 @@ contracts.
 | `RC-004` | Generic checks do not claim to prove project-specific semantics. | `SKILL.md`, checker help and README | unit and prose review |
 | `RC-005` | Detailed workflows load through direct references instead of bloating routine skill context. | `SKILL.md`, `references/` | official validator and link check |
 | `RC-006` | Public artifacts contain no private registry, audit report, local path, or personalized authorization rule. | entire repository | private-content review before publication |
+| `RC-007` | Close overwrites `STATUS.md` as a snapshot and reports the session to the owner; it does not create close-memoir documents or restated contracts. | `references/close.md`, `references/document-model.md`, checker warnings | `tests/test_check_docset.py`, close eval |
 
 ## Interfaces and boundaries
 

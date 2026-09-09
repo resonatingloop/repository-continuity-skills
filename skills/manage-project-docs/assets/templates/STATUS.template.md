@@ -5,6 +5,9 @@
 > **Last verified:** {{YYYY-MM-DD}}
 > **Owns:** verified current state, active work, known gaps, and next useful action
 > **Update when:** a meaningful stopping point changes any of those facts
+>
+> Replace the previous checkpoint in place. Evidence of success is one
+> observable result, not a session transcript.
 
 ## Verified checkpoint
 

@@ -39,17 +39,24 @@ only the presence of matching strings.
 
 ## 4. Persist the new checkpoint
 
-- Update operational instructions when the successful-use path changed.
-- Update `STATUS.md` with verified current state and next useful action.
-- Record a decision when the slice introduced, clarified or superseded a fact
-  another maintainer would otherwise have to re-derive.
-- Do not create a new decision for a fix that merely restores an existing
-  invariant; link the fix to that invariant instead.
-- Mark the accepted spec retired only after its acceptance criteria and proofs
-  are satisfied.
+Write the current snapshot. Do not file the session.
 
-## 5. Report honestly
+| If this changed | Write this | Shape |
+|---|---|---|
+| Verified state, gaps, next action | Overwrite `STATUS.md` | Template sections only. Commands + one result string (`2 tests OK`). Unproven items as one-line bullets. |
+| Successful-use path | `README.md` | Owner's shortest use. Link to contracts; do not copy them. |
+| A new don't-drift invariant | `CONTRACTS.md` | One claim and its proof. Do not transcribe spec Out: into a new invariant unless the owner asked. |
+| A newly non-trivial procedure | `docs/DEVELOPMENT.md` | How to run it, not how this slice went. |
+| A choice a later agent would re-derive that the spec does not already record | `DECISIONS.md` | One decision. Spec Out: is already the record of rejected work. |
+| Slice acceptance criteria met | `specs/*.md` | `status: retired` |
 
-List validation results, documentation changed, unresolved unknowns, deferred
-dimensions, and cross-repository dependencies. Do not describe normalized or
-reconstructed facts as exact.
+Do not add documents outside the model in [document-model.md](document-model.md). There is no `VERIFICATION.md`. Reusable operator procedures belong in Promote, not in the project.
+
+Bulky proof (browser profiles, published runtimes, driver binaries): keep the result string in STATUS. Delete the rest unless STATUS names a file that must remain.
+
+## 5. Report honestly, in the conversation
+
+The close report is the message to the owner, not a repository file. List
+validation results, documents changed, unproven items, and the next
+transition. Suite transcripts belong here if they belong anywhere. Do not
+describe normalized or reconstructed facts as exact.

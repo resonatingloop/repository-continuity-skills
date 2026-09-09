@@ -6,7 +6,8 @@
 > **Owns:** the shortest successful use and the map to deeper documentation
 > **Update when:** installation, primary use, maturity, or document authority changes
 
-{{One paragraph explaining what the project currently does and who uses it.}}
+{{One paragraph explaining what the project currently does. Write for the
+owner and future agents, not a public audience unless the project is public.}}
 
 ## Current state
 

@@ -6,8 +6,9 @@ description: Maintain repository documentation as a continuity protocol tied to 
 # Manage Project Docs
 
 Treat documentation as durable project state, workflows as state transitions,
-and executable checks as invariant proofs. Optimize for a future maintainer or
-agent returning without conversational memory.
+and executable checks as invariant proofs. Optimize for the repository owner
+and future agents returning without conversational memory, not a public
+audience unless the project is public.
 
 ## Preserve authorization
 
@@ -55,8 +56,8 @@ default.
   existing document blindly.
 - Run `scripts/check_docset.py REPO` to check the universal core: required
   front-door documents, unresolved placeholders, local Markdown links, spec
-  statuses, and status freshness. Use `--help` for optional requirements and
-  strong-claim review.
+  statuses, status freshness, and close-residue warnings. Use `--help` for
+  optional requirements and strong-claim review.
 - Keep project-specific semantic proofs in the project itself. A generic
   checker cannot prove wire behavior, privacy guarantees, state transitions,
   schemas, or cross-repository conformance.
@@ -87,5 +88,5 @@ Report:
 - the next authorized transition, if one exists.
 
 Do not call the repository continuous merely because documents exist. Confirm
-that a cold reader can find the current state, reach one successful use, and
-identify what may happen next.
+that the owner can find the current state, reach one successful use, and
+identify what may happen next without reading a defense of the last session.

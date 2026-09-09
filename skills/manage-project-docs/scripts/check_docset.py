@@ -17,6 +17,18 @@ from urllib.parse import unquote, urlparse
 
 
 CORE_DOCUMENTS = ("README.md", "AGENTS.md", "STATUS.md")
+CLOSE_RESIDUE_BASENAMES = {"verification.md"}
+ALLOWED_STATUS_HEADINGS = frozenset(
+    {
+        "Verified checkpoint",
+        "Working now",
+        "Incomplete or broken",
+        "Active work",
+        "Next useful action",
+        "Re-entry notes",
+    }
+)
+STATUS_HEADING_PATTERN = re.compile(r"^##[ \t]+(.+?)\s*$", re.MULTILINE)
 IGNORED_PARTS = {
     ".git",
     ".mypy_cache",
@@ -63,7 +75,7 @@ class Finding:
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Check repository-independent documentation continuity invariants."
+        description="Check repository-independent documentation continuity invariants (structure, freshness, close residue)."
     )
     parser.add_argument(
         "repository",
@@ -224,6 +236,66 @@ def check_front_door(root: Path, documents: dict[Path, str]) -> list[Finding]:
     return findings
 
 
+def check_close_residue(root: Path, documents: dict[Path, str]) -> list[Finding]:
+    findings: list[Finding] = []
+    for path in documents:
+        if path.name.lower() in CLOSE_RESIDUE_BASENAMES:
+            findings.append(
+                Finding(
+                    "WARN",
+                    str(path.relative_to(root)),
+                    None,
+                    "VERIFICATION.md is not a model document; STATUS.md owns the checkpoint",
+                )
+            )
+    return findings
+
+
+def check_status_shape(root: Path, documents: dict[Path, str]) -> list[Finding]:
+    status_path = root / "STATUS.md"
+    text = documents.get(status_path)
+    if text is None:
+        return []
+
+    findings: list[Finding] = []
+    fence_blocks = text.count("```") // 2
+    if fence_blocks > 2:
+        findings.append(
+            Finding(
+                "WARN",
+                "STATUS.md",
+                None,
+                f"STATUS snapshot has {fence_blocks} fenced blocks; record commands and one result, not a session transcript",
+            )
+        )
+    headings = [match.group(1).strip() for match in STATUS_HEADING_PATTERN.finditer(text)]
+    checkpoint_count = headings.count("Verified checkpoint")
+    if checkpoint_count > 1:
+        findings.append(
+            Finding(
+                "WARN",
+                "STATUS.md",
+                None,
+                f"extra Verified checkpoint section ({checkpoint_count} found); STATUS is a snapshot",
+            )
+        )
+    seen: set[str] = set()
+    for heading in headings:
+        if heading in ALLOWED_STATUS_HEADINGS or heading in seen:
+            seen.add(heading)
+            continue
+        seen.add(heading)
+        findings.append(
+            Finding(
+                "WARN",
+                "STATUS.md",
+                None,
+                f"unexpected STATUS heading {heading!r}; STATUS is a snapshot using the template sections",
+            )
+        )
+    return findings
+
+
 def check_status_age(root: Path, documents: dict[Path, str], max_age: int) -> list[Finding]:
     if max_age < 0:
         return []
@@ -287,6 +359,8 @@ def run(args: argparse.Namespace) -> tuple[list[Finding], int]:
     findings.extend(check_links(root, documents))
     findings.extend(check_specs(root, documents))
     findings.extend(check_front_door(root, documents))
+    findings.extend(check_close_residue(root, documents))
+    findings.extend(check_status_shape(root, documents))
     findings.extend(check_status_age(root, documents, args.max_status_age))
     if args.review_claims:
         findings.extend(collect_strong_claims(root, documents))

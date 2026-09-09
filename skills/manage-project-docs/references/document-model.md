@@ -1,16 +1,18 @@
 # Document model
 
 Use the smallest document set that gives each kind of truth one clear owner.
-Locations may vary when a repository already has established conventions;
-record the actual map in its README instead of forcing renames.
+Write for the repository owner and future agents returning without
+conversational memory, not a public contributor, unless the project is
+actually public. Locations may vary when a repository already has established
+conventions; record the actual map in its README instead of forcing renames.
 
 ## Core documents
 
 | Document | Owns | Update trigger |
 |---|---|---|
-| `README.md` | Front door, maturity, shortest successful use, documentation map | Primary installation or use path changes |
+| `README.md` | Owner's front door, maturity, shortest successful use, documentation map | Primary installation or use path changes |
 | `AGENTS.md` | Agent authorization, required reading, scope rules, validation and close protocol | Collaboration policy changes |
-| `STATUS.md` | Last verified checkpoint, working and broken paths, active work, next useful action | A meaningful stopping point is reached |
+| `STATUS.md` | Current checkpoint only (overwrite, not a history or session transcript) | A meaningful stopping point is reached |
 
 These three documents form the minimum continuity surface for a maintained
 project. Small scripts and disposable experiments may use a header comment
@@ -31,6 +33,8 @@ instead.
 
 Do not create both `PLAN.md` and an active spec when they would own the same
 transition. Prefer one explicit lifecycle: `draft -> accepted -> retired`.
+Do not add `VERIFICATION.md` or other close-memoir files; `STATUS.md` owns
+the checkpoint and the conversational close report owns the session.
 
 ## Assign authority explicitly
 

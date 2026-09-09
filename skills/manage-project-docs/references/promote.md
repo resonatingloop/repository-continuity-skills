@@ -9,6 +9,8 @@ Ask where the correction belongs:
 
 - **local fact:** update one repository's instructions, tests or status;
 - **reusable policy:** update the shared workflow or template;
+- **operator procedure that will recur across repositories:** promote here;
+  do not paste a "reusable workflow" section into a project README;
 - **structured invariant:** add a deterministic generic check;
 - **semantic invariant:** add a project-owned test or conformance harness;
 - **judgment call:** add a review question rather than a brittle test.
