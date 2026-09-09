@@ -178,3 +178,27 @@ Consequences:
 - Close evals grade snapshot shape, not merely "STATUS was touched."
 - Historical `VERIFICATION.md` files warn rather than fail.
 - `TESTING.md` is not banned; it is not a close output.
+
+## D-008 — Eval harness stays in the private workspace
+
+- Date: 2026-09-08
+- Status: accepted
+- Supersedes: none
+- Related spec: `specs/002-portable-eval-harness.md` (rejected)
+
+Context:
+
+A draft proposed extracting the private eval loop into this public repository
+so both agent variants could grade the same fixtures. The mechanical loop
+already exists in the private eval workspace. D-002 keeps that control plane
+out of the public package.
+
+Decision:
+
+Reject spec 002. Do not ship an eval harness, eval fixtures, or run trees in
+this repository. Forward-tests of the skill remain in the private workspace.
+
+Consequences:
+
+- This package continues to own the skill, templates, and shallow checker.
+- Re-proposing a public harness needs a new spec, not revival of 002.

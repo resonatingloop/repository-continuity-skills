@@ -48,5 +48,5 @@ approval.
 ## 4. Request the transition
 
 Present the draft and name any decisions needed. The user or designated owner
-may mark it accepted. Do not interpret enthusiasm, discussion, or a request for
-options as acceptance.
+may mark it `accepted` or `rejected`. Do not interpret enthusiasm, discussion,
+or a request for options as acceptance.

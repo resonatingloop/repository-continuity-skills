@@ -41,7 +41,7 @@ IGNORED_PARTS = {
     "node_modules",
     "vendor",
 }
-VALID_SPEC_STATUSES = {"draft", "accepted", "retired"}
+VALID_SPEC_STATUSES = {"draft", "accepted", "retired", "rejected"}
 PLACEHOLDER_PATTERNS = (
     (re.compile(r"\{\{[^{}\n]+\}\}"), "unresolved template placeholder"),
     (re.compile(r"\bTODO\(verify\)", re.IGNORECASE), "unresolved verification marker"),

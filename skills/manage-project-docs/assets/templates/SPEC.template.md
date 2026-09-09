@@ -7,8 +7,9 @@ status: draft
 > **Created:** {{YYYY-MM-DD}}
 > **Supersedes:** {{spec or none}}
 
-Only the designated owner may change `status` from `draft` to `accepted`.
-Implementation against a draft spec requires separate explicit authorization.
+Only the designated owner may change `status` from `draft` to `accepted` or
+`rejected`. Implementation against a draft spec requires separate explicit
+authorization.
 
 ## Context
 

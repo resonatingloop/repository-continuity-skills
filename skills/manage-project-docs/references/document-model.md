@@ -32,7 +32,7 @@ instead.
 | Generated reference | Facts can be derived deterministically | CLI, API, schema or configuration inventory |
 
 Do not create both `PLAN.md` and an active spec when they would own the same
-transition. Prefer one explicit lifecycle: `draft -> accepted -> retired`.
+transition. Prefer one explicit lifecycle: `draft -> accepted -> retired`, or `draft -> rejected`.
 Do not add `VERIFICATION.md` or other close-memoir files; `STATUS.md` owns
 the checkpoint and the conversational close report owns the session.
 
