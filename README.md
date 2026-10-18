@@ -2,7 +2,7 @@
 
 > **Continuity role:** operational front door
 > **Status:** experimental
-> **Last verified:** 2026-07-15
+> **Last verified:** 2026-10-17
 > **Owns:** the public purpose, installation path, lifecycle overview, and documentation map
 > **Update when:** skill installation, supported workflows, maturity, or document authority changes
 
@@ -25,8 +25,9 @@ historical intent, current behavior, normative contracts, and proposed work.
 
 The repository contains an installable `manage-project-docs` skill in two
 agent-shaped variants (Codex under `skills/`, Claude Code under
-`skills-claude/`), generic document templates, six workflow references, and a
-dependency-free structural documentation checker. The variants differ only in
+`skills-claude/`), generic document templates, six workflow references, a
+dependency-free structural documentation checker, and a deterministic static
+change-atlas renderer. The variants differ only in
 their `SKILL.md` router; workflow references, templates, and scripts are owned
 by the Codex package and shared into the Claude variant by relative symlink. The project is an early working version intended for
 local pilots before a stable public release.
@@ -38,7 +39,9 @@ See [STATUS.md](STATUS.md) for the verified checkpoint and next work.
 ```text
 repository state
     -> bootstrap or resume
-    -> draft and accept a transition
+    -> draft a canonical transition
+    -> render its advisory change atlas
+    -> explicitly accept or reject the canonical spec
     -> implement by invariant
     -> reconcile and close
     -> new repository state
@@ -77,6 +80,20 @@ Use manage-project-docs to draft a continuity spec for this feature.
 Use manage-project-docs to audit the documentation against the live code.
 ```
 
+## Render a change atlas
+
+For an authorized saved material spec, generate a local owner-facing review
+surface while keeping the Markdown source canonical:
+
+```text
+python3 skills/manage-project-docs/scripts/render_change_atlas.py specs/example.md --output build/change-atlas/example.html
+python3 skills/manage-project-docs/scripts/render_change_atlas.py specs/example.md --output build/change-atlas/example.html --check
+```
+
+The static page exposes its source path and fingerprint, performs no network
+access, and retains the complete escaped spec beneath the visual review layer.
+It cannot accept or modify the spec.
+
 ## Run the structural checker
 
 ```text
@@ -106,7 +123,9 @@ python3 -m unittest discover -s tests -v
 | [DECISIONS.md](DECISIONS.md) | historical | append-only | accepted rationale and supersession |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | descriptive/current | current | implemented package and workflow shape |
 | [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) | operational | current | local validation and release preparation |
-| [specs/001-initial-skill.md](specs/001-initial-skill.md) | planning/history | accepted | initial public skill slice |
+| [specs/001-initial-skill.md](specs/001-initial-skill.md) | planning/history | retired | initial public skill slice |
+| [specs/003-close-checkpoint-not-memoir.md](specs/003-close-checkpoint-not-memoir.md) | planning/history | retired | compact close behavior |
+| [specs/004-change-atlas.md](specs/004-change-atlas.md) | planning/history | retired | canonical-spec and visual-approval split |
 
 ## Public boundary
 
@@ -123,6 +142,9 @@ Copyright (c) 2026 resonatingloop.
 ## Known limitations
 
 - The skill has not yet been forward-tested against multiple fresh repositories.
+- The change atlas has not yet been field-tested on the next live owner approval.
+- Review visuals accept local PNG, JPEG and WebP files; arbitrary Markdown HTML,
+  remote assets and SVG are deliberately unsupported.
 - The checker validates local file links but not Markdown anchor fragments.
 - Installation and publication automation are intentionally deferred until the
   first local pilots establish the stable package shape.

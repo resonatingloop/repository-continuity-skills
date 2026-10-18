@@ -15,6 +15,21 @@ authorization.
 
 {{Why this change, why now, and what verified current state it starts from.}}
 
+## Owner view
+
+- Change: {{one-breath description of the transition}}
+- Before: {{current owner-visible state}}
+- After: {{proposed owner-visible state}}
+- Authority: the canonical Markdown spec
+
+## Owner decisions
+
+### {{decision title, or omit subsections and write `- None.`}}
+
+- Recommendation: {{recommended choice}}
+- Alternative: {{meaningful alternative}}
+- Consequence: {{what this choice changes}}
+
 ## Scope
 
 In:
@@ -41,6 +56,10 @@ Out:
 | Setup, operation or recovery | {{yes/no}} | {{owner}} | {{proof}} |
 | Normative contract or decision | {{yes/no}} | {{owner}} | {{proof}} |
 | Cross-repository dependency | {{yes/no}} | {{owner}} | {{proof}} |
+
+## Review visuals
+
+{{One local PNG, JPEG, or WebP Markdown image per line, with descriptive alt text, or `- None.`}}
 
 ## Implementation by invariant
 

@@ -28,6 +28,7 @@ instead.
 | `docs/ARCHITECTURE.md` | Multiple components or boundaries need explanation | Implemented system shape and data flow |
 | `DECISIONS.md` | Consequential choices should not be re-derived | Accepted rationale, consequences and supersession history |
 | `specs/*.md` | A substantial slice needs approval and acceptance criteria | Proposed or accepted transition, never durable current truth |
+| Generated change atlas | A saved material spec needs an owner-facing approval surface | Advisory projection of one exact canonical spec revision |
 | `docs/INTEGRATIONS.md` | Use crosses repository, service or client boundaries | End-to-end setup and conformance expectations |
 | Generated reference | Facts can be derived deterministically | CLI, API, schema or configuration inventory |
 
@@ -35,6 +36,11 @@ Do not create both `PLAN.md` and an active spec when they would own the same
 transition. Prefer one explicit lifecycle: `draft -> accepted -> retired`, or `draft -> rejected`.
 Do not add `VERIFICATION.md` or other close-memoir files; `STATUS.md` owns
 the checkpoint and the conversational close report owns the session.
+
+A change atlas owns no project truth. Keep its source path and fingerprint
+visible, verify it against the renderer before presentation, and delete or
+regenerate it when stale. Repository policy decides whether canonical specs are
+tracked; generated atlases remain local unless deliberately promoted.
 
 ## Assign authority explicitly
 

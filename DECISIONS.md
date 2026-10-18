@@ -2,7 +2,7 @@
 
 > **Continuity role:** historical rationale and supersession
 > **Status:** append-only
-> **Last verified:** 2026-09-08
+> **Last verified:** 2026-10-17
 > **Owns:** consequential choices another maintainer should not have to re-derive
 > **Update when:** a decision introduces, clarifies, or supersedes a durable fact
 
@@ -202,3 +202,34 @@ Consequences:
 
 - This package continues to own the skill, templates, and shallow checker.
 - Re-proposing a public harness needs a new spec, not revival of 002.
+
+## D-009 — Split approval presentation without splitting authority
+
+- Date: 2026-10-17
+- Status: accepted
+- Supersedes: none
+- Related spec: `specs/004-change-atlas.md`
+
+Context:
+
+Material specs are earning their keep as execution and continuity substrates,
+but requiring the owner to read them linearly for every approval makes the same
+artifact carry two incompatible cognitive duties.
+
+Decision:
+
+Keep the Markdown spec canonical and generate a local change atlas as an
+advisory visual projection of one exact revision. The atlas foregrounds the
+transition, owner decisions, scope, risks and proof while retaining the full
+escaped source. It cannot accept or modify the spec. In this public repository,
+track sanitized accepted and retired specs named as authority; keep drafts and
+generated atlases local unless deliberately promoted.
+
+Consequences:
+
+- The exhaustive spec may optimize for exact execution and cold resumption.
+- The owner receives a shorter decision-shaped surface without losing drill-down.
+- Source fingerprinting and deterministic comparison prevent a stale projection
+  from silently presenting itself as current.
+- HTML rendering becomes an explicit trust boundary with hostile-input tests.
+- Downstream repositories retain their own canonical-spec tracking policy.

@@ -6,6 +6,11 @@ __pycache__/
 .venv/
 dist/
 build/
-/specs
+# Specs remain local unless deliberately promoted as public-safe accepted or
+# retired history. Generated atlases remain ignored by the catch-all.
+/specs/*
+!/specs/001-initial-skill.md
+!/specs/003-close-checkpoint-not-memoir.md
+!/specs/004-change-atlas.md
 /skills-claude
 .env

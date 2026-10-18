@@ -2,7 +2,7 @@
 
 > **Continuity role:** normative invariants
 > **Status:** current
-> **Last verified:** 2026-09-08
+> **Last verified:** 2026-10-17
 > **Owns:** confirmed promises the public skill must not drift from casually
 > **Update when:** an authorized decision changes an invariant or its proof
 
@@ -16,6 +16,7 @@ contracts.
 | Skill triggering and runtime routing | `skills/manage-project-docs/SKILL.md` | official skill validator plus review |
 | Detailed operation procedure | matching file in `skills/manage-project-docs/references/` | direct-link and document checks |
 | Reusable output shape | `skills/manage-project-docs/assets/templates/` | placeholder and fixture review |
+| Generated change-atlas behavior | `skills/manage-project-docs/scripts/render_change_atlas.py` and `CHANGE_ATLAS.template.html` | renderer unit tests and browser inspection |
 | Generic structural checks | `skills/manage-project-docs/scripts/check_docset.py` | `tests/test_check_docset.py` |
 | Public project state | `STATUS.md` | recorded validation commands and Git state |
 | Repository licensing | `LICENSE` | GitHub license detection and direct review |
@@ -31,6 +32,7 @@ contracts.
 | `RC-005` | Detailed workflows load through direct references instead of bloating routine skill context. | `SKILL.md`, `references/` | official validator and link check |
 | `RC-006` | Public artifacts contain no private registry, audit report, local path, or personalized authorization rule. | entire repository | private-content review before publication |
 | `RC-007` | Close overwrites `STATUS.md` as a snapshot and reports the session to the owner; it does not create close-memoir documents or restated contracts. | `references/close.md`, `references/document-model.md`, checker warnings | `tests/test_check_docset.py`, close eval |
+| `RC-008` | A change atlas is a deterministic advisory projection of one canonical Markdown spec revision. It cannot accept, modify or replace that spec. | `references/plan.md`, renderer, atlas template | renderer tests, exact-output check and instruction review |
 
 ## Interfaces and boundaries
 
@@ -38,17 +40,25 @@ contracts.
 - `SKILL.md` routes operations; direct reference files own the detailed procedures.
 - Templates are assets copied into output repositories only during authorized work.
 - The generic checker may inspect Markdown but must not execute project commands.
+- The change-atlas renderer reads one explicitly named spec and optional local
+  raster review images, then writes one explicitly named local HTML output.
+- Generated atlases contain no JavaScript, remote assets, server, telemetry or
+  browser-to-repository write path.
 - Project-specific semantic proof remains in the target repository.
 
 ## Data and schema
 
 The skill stores no runtime data. It reads repository files and, during an
 authorized operation, may create or edit Markdown using the bundled templates.
-The checker reads UTF-8 Markdown and emits findings to standard output.
+The checker reads UTF-8 Markdown and emits findings to standard output. The
+change-atlas renderer produces disposable static HTML; its source fingerprint
+and exact-output check expose drift without making the HTML authoritative.
 
 ## Lifecycle and failure semantics
 
 - Specs use `draft`, `accepted`, and `retired` states.
+- An atlas is current only when check mode byte-compares it successfully with a
+  fresh render from the named spec, template and review images.
 - Invalid or missing required structure causes the checker to exit nonzero.
 - Warnings and strong-claim review items do not cause failure.
 - Unknown or unprovable facts remain labeled unknown rather than reconstructed
@@ -59,6 +69,9 @@ The checker reads UTF-8 Markdown and emits findings to standard output.
 - Do not read secret values to document their locations or sources.
 - Do not copy target-repository content into public fixtures without explicit
   review and sanitization.
+- Escape all spec-derived HTML text. Accept review images only from validated
+  local PNG, JPEG or WebP files beneath the spec directory; reject path escape,
+  symbolic links, SVG, remote sources and caller-supplied data URLs.
 - Audit and resume reports may describe private repositories locally, but the
   reusable skill package must contain only generic examples.
 
