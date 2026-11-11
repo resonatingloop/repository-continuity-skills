@@ -2,7 +2,7 @@
 
 > **Continuity role:** implemented system model
 > **Status:** current
-> **Last verified:** 2026-10-17
+> **Last verified:** 2026-11-06
 > **Owns:** package components, boundaries, workflow routing, and proof layers
 > **Update when:** structural implementation changes
 
@@ -15,6 +15,7 @@ user request
     -> one workflow reference supplies detailed procedure
     -> optional template assets create authorized project documents
     -> Plan may project one saved spec through the local change-atlas renderer
+    -> the Codex router may hand the saved spec to an available visual-companion skill
     -> owner reviews the atlas and explicitly accepts or rejects the canonical spec
     -> generic checker validates structured facts
     -> target repository tests prove project-specific semantics
@@ -76,6 +77,13 @@ the reusable protocol only after a local lesson is classified and generalized.
   embeds only validated local raster review images.
 - Shared updates never automatically overwrite filled downstream documents.
 - Generic clean checks never imply semantic documentation correctness.
+
+the Codex Plan router automatically loads the available `attention-aperture`
+skill for an authorized saved material spec, unless text-only was requested.
+the shared [companion handoff](../skills/manage-project-docs/references/spec-companion.md)
+owns fit, source binding, fallback, and presentation. external builders and
+interactive assets stay in that skill. the atlas renderer remains static,
+dependency-free, and unchanged; a companion is a separate authored projection.
 
 ## Known structural pressure
 

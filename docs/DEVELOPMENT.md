@@ -2,7 +2,7 @@
 
 > **Continuity role:** operational procedure
 > **Status:** current
-> **Last verified:** 2026-10-17
+> **Last verified:** 2026-11-06
 > **Owns:** exact local validation and publication-preparation procedures
 > **Update when:** commands, dependencies, or package layout change
 
@@ -13,6 +13,12 @@
   for official skill validation.
 
 The skill and its checker have no third-party runtime dependencies.
+
+the optional saved-spec companion route uses an already-available visual skill
+and that skill's own local builder requirements. it does not install tooling
+or add a dependency to the checker or atlas renderer. follow the
+[companion handoff](../skills/manage-project-docs/references/spec-companion.md)
+when exercising that route.
 
 ## Render a change atlas
 

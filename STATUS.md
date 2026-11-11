@@ -2,18 +2,18 @@
 
 > **Continuity role:** operational checkpoint
 > **Status:** current
-> **Last verified:** 2026-10-17
+> **Last verified:** 2026-11-06
 > **Owns:** verified current state, active work, known gaps, and next useful action
 > **Update when:** a meaningful stopping point changes any of those facts
 
 ## Verified checkpoint
 
-The change-atlas transition in `specs/004-change-atlas.md` is implemented and
-retired. Plan can now project an authorized saved material spec into a static,
-responsive owner surface while the Markdown source remains the sole planning
-authority. The renderer exposes source provenance, escapes all spec prose,
-embeds only validated local raster images, detects drift, and refuses unsafe
-overwrites.
+the static change atlas remains implemented under retired spec 004. the codex
+Plan router now automatically loads an available `attention-aperture` skill
+for an authorized saved material spec. the companion pass checks instrument
+fit, binds its authored model to source fingerprints, and preserves atlas and
+Markdown authority. text-only, unavailable-tool, and unsupported-format paths
+remain explicit. no renderer or checker code changed.
 
 Verification performed:
 
@@ -27,12 +27,13 @@ python3 skills/manage-project-docs/scripts/render_change_atlas.py specs/004-chan
 Evidence of success:
 
 ```text
-17 tests OK; check_docset 0 errors and 0 warnings; skill valid; atlas current
+17 tests OK; check_docset 0 errors and 0 warnings; skill valid; atlas current; installed routing resolves
 ```
 
 ## Working now
 
 - Six continuity operations, two agent routers over one shared core
+- Codex saved-spec handoff to an available visual-companion skill; separate local output and unchanged atlas
 - Checker fixtures: healthy, drifted, close-residue
 - Static change-atlas renderer and responsive local HTML template
 - Renderer fixtures: freshness, tampering, hostile prose, image containment,
@@ -43,8 +44,9 @@ Evidence of success:
 ## Incomplete or broken
 
 - Close eval is one run per condition, not a three-run benchmark
-- Plan and Promote remain untested in the field
-- The change atlas has not yet mediated a live owner approval
+- The new automatic companion handoff needs its first fresh-session saved-spec use
+- Broader Plan and Promote field coverage remains unverified
+- The current task did not reverify live owner-approval or rendered-companion behavior
 - Independent review of the HTML trust boundary remains a release gate
 - Draft, rejected, and generated spec artifacts remain ignored unless deliberately promoted
 - `/skills-claude` is gitignored; Claude router edits are local only
@@ -52,14 +54,14 @@ Evidence of success:
 ## Active work
 
 - Accepted spec: none
-- Current focus: owner inspection and first-use field proof
+- Current focus: first-use proof of the saved-spec companion handoff
 - Blockers: none
 
 ## Next useful action
 
-Use the generated atlas on the next material spec approval, then record whether
-its decision-shaped surface reduces reading burden without obscuring anything
-the owner needed to judge.
+ask the codex variant to draft the next material spec with the companion skill
+available. confirm it selects a supported instrument without a second prompt,
+then inspect the companion, atlas, and source revision together.
 
 ## Re-entry notes
 

@@ -39,6 +39,19 @@ documents, assigning authority, resolving apparent contradictions, or deciding
 which bundled templates to use. Do not load every workflow reference by
 default.
 
+## pair saved specs with a visual companion
+
+when Plan creates or materially revises an authorized saved material spec, automatically
+use the available `attention-aperture` skill for the owner-facing companion
+pass, unless the owner requests text only. read its installed `SKILL.md` and
+[references/spec-companion.md](references/spec-companion.md); choose a supported
+instrument that clarifies the spec. this handoff is part of the authorized
+spec task and needs no second invocation. if the skill is unavailable or no
+instrument fits, complete the ordinary change-atlas handoff and state the gap.
+
+this routing is for saved spec work. discussion, Resume, and Audit do not gain
+write authority from the availability of a visual skill.
+
 ## Run the common preflight
 
 1. Locate the repository root and read its instruction files.

@@ -74,6 +74,14 @@ The renderer accepts only its supported spec structure. It escapes prose,
 embeds validated local raster images, performs no network access, and refuses
 to overwrite a foreign file or an atlas bound to another source.
 
+### companion pass
+
+if the active agent router supplies a visual-companion skill, follow
+[spec-companion.md](spec-companion.md) before presenting the saved material
+spec. the companion explains a selected relationship or consequence beside
+the atlas's complete review surface. it remains a separate local artifact;
+do not embed active content in the static atlas or its review-image section.
+
 ## 5. Request the transition
 
 Present the atlas (or its owner view when no saved artifact was authorized),
@@ -81,3 +89,8 @@ name decisions needed, and keep the complete spec reachable. The user or
 designated owner may mark the exact canonical revision `accepted` or
 `rejected`. Do not interpret enthusiasm, discussion, atlas viewing, or a
 request for options as acceptance.
+
+when a companion was built, link it alongside the atlas and canonical spec,
+name the question it answers, and disclose its coverage and proof gaps. when
+the companion pass was skipped or unavailable, give the concrete reason in
+one sentence. the spec's status and owner authority are unchanged.

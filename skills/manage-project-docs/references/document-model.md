@@ -29,6 +29,7 @@ instead.
 | `DECISIONS.md` | Consequential choices should not be re-derived | Accepted rationale, consequences and supersession history |
 | `specs/*.md` | A substantial slice needs approval and acceptance criteria | Proposed or accepted transition, never durable current truth |
 | Generated change atlas | A saved material spec needs an owner-facing approval surface | Advisory projection of one exact canonical spec revision |
+| Local visual companion | An authorized saved spec benefits from a supported visual explanation | Authored, bounded projection with explicit coverage and source fingerprints; no planning authority |
 | `docs/INTEGRATIONS.md` | Use crosses repository, service or client boundaries | End-to-end setup and conformance expectations |
 | Generated reference | Facts can be derived deterministically | CLI, API, schema or configuration inventory |
 
@@ -41,6 +42,11 @@ A change atlas owns no project truth. Keep its source path and fingerprint
 visible, verify it against the renderer before presentation, and delete or
 regenerate it when stale. Repository policy decides whether canonical specs are
 tracked; generated atlases remain local unless deliberately promoted.
+
+a visual companion stays separate from the static atlas. its source
+fingerprints identify the revision it explains; the atlas freshness check
+does not validate its authored model. recheck that model when its sources
+change, following [spec-companion.md](spec-companion.md).
 
 ## Assign authority explicitly
 

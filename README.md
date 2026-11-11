@@ -2,7 +2,7 @@
 
 > **Continuity role:** operational front door
 > **Status:** experimental
-> **Last verified:** 2026-10-17
+> **Last verified:** 2026-11-06
 > **Owns:** the public purpose, installation path, lifecycle overview, and documentation map
 > **Update when:** skill installation, supported workflows, maturity, or document authority changes
 
@@ -93,6 +93,20 @@ python3 skills/manage-project-docs/scripts/render_change_atlas.py specs/example.
 The static page exposes its source path and fingerprint, performs no network
 access, and retains the complete escaped spec beneath the visual review layer.
 It cannot accept or modify the spec.
+
+## spec companions in codex
+
+when `attention-aperture` is already available, the Codex Plan router
+automatically reads it while creating or materially revising an authorized
+saved spec. it adds a source-linked anatomy/trace or dense-plan review when
+one of the installed skill's instruments fits. no second invocation is needed.
+text-only requests skip visual output; absent tooling or unsupported material
+falls back to the ordinary atlas with a short explanation.
+
+the companion is a separate local bundle with declared coverage and source
+fingerprints. it does not replace the atlas, accept the spec, or add a runtime
+dependency to this package. see the [companion handoff](skills/manage-project-docs/references/spec-companion.md)
+for selection, freshness, and authority rules.
 
 ## Run the structural checker
 
