@@ -39,6 +39,28 @@ documents, assigning authority, resolving apparent contradictions, or deciding
 which bundled templates to use. Do not load every workflow reference by
 default.
 
+## Route risk-triggered opposition
+
+Before any authorized implementation, including a direct bounded change,
+evaluate anticipated consequence. Read
+[references/risk-gates.md](references/risk-gates.md) before editing if shared
+state, persistence, migrations, authentication, generated interfaces,
+historically misunderstood identifiers, or another declared high-consequence
+seam is in scope. Plan records the anticipated route and Close reclassifies the
+realized diff. Ordinary verification remains the default for small isolated
+changes. The risk trigger is deterministic project judgment; do not delegate
+it to the review model.
+
+## Seal material terminal claims
+
+Before representing an authorized material implementation as done,
+implemented, complete, shipped, verified, or ready for commit or release, read
+[references/close.md](references/close.md) and
+[references/transition-seal.md](references/transition-seal.md). Trigger on the
+semantic claim, not a raw keyword occurrence. Consume an actual-change receipt
+when one exists; otherwise reconstruct its evidence. Return `closed`, `partial`,
+or `divergent`. Only `closed` supports the terminal claim or spec retirement.
+
 ## pair saved specs with a visual companion
 
 when Plan creates or materially revises an authorized saved material spec, automatically

@@ -32,6 +32,11 @@ Include this matrix in every material spec:
 Require a conscious `no`; do not leave dimensions blank. The proof may be a
 test, generated comparison, manual observation, or explicit review.
 
+Apply [risk-gates.md](risk-gates.md) to the declared shape. Record every
+triggered semantic preflight or diff adversary in the spec's implementation and
+proof obligations. Ordinary verification is the default when no deterministic
+trigger applies; a review model does not choose or waive the route.
+
 ## 3. Draft the spec
 
 Define:

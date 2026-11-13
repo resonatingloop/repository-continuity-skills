@@ -2,7 +2,7 @@
 
 > **Continuity role:** normative invariants
 > **Status:** current
-> **Last verified:** 2026-10-17
+> **Last verified:** 2026-11-12
 > **Owns:** confirmed promises the public skill must not drift from casually
 > **Update when:** an authorized decision changes an invariant or its proof
 
@@ -33,6 +33,8 @@ contracts.
 | `RC-006` | Public artifacts contain no private registry, audit report, local path, or personalized authorization rule. | entire repository | private-content review before publication |
 | `RC-007` | Close overwrites `STATUS.md` as a snapshot and reports the session to the owner; it does not create close-memoir documents or restated contracts. | `references/close.md`, `references/document-model.md`, checker warnings | `tests/test_check_docset.py`, close eval |
 | `RC-008` | A change atlas is a deterministic advisory projection of one canonical Markdown spec revision. It cannot accept, modify or replace that spec. | `references/plan.md`, renderer, atlas template | renderer tests, exact-output check and instruction review |
+| `RC-009` | Before a material terminal claim, Close seals actual rather than anticipated consequence and returns `closed`, `partial`, or `divergent`; only `closed` may retire the accepted spec. | `SKILL.md`, `references/close.md`, `references/transition-seal.md` | instruction review and private close eval |
+| `RC-010` | Adversarial review is risk-triggered rather than universal: deterministic consequence signals choose the route, reviewers remain independent and read-only, and findings retain epistemic status until reconciled. | `SKILL.md`, `references/risk-gates.md`, `references/plan.md`, `references/close.md` | instruction review; sanitized private-eval evidence recorded in D-011 |
 
 ## Interfaces and boundaries
 
@@ -45,6 +47,12 @@ contracts.
 - Generated atlases contain no JavaScript, remote assets, server, telemetry or
   browser-to-repository write path.
 - Project-specific semantic proof remains in the target repository.
+- Actual-change receipts are transient seam inputs. The continuity close owns
+  promotion into repository truth; an implementation workflow cannot seal its
+  own receipt merely by producing it.
+- Risk-gate receipts identify the reviewed source or diff revision. They are
+  evidence for Close, not authority to edit files or promote raw findings into
+  contracts, decisions, status, or continuity memory.
 
 ## Data and schema
 
@@ -57,6 +65,11 @@ and exact-output check expose drift without making the HTML authoritative.
 ## Lifecycle and failure semantics
 
 - Specs use `draft`, `accepted`, and `retired` states.
+- `closed`, `partial`, and `divergent` are close-attempt outcomes, not additional
+  spec lifecycle states.
+- Ordinary verification is the default. Semantic preflight and a fresh diff
+  adversary are summoned only when the shared risk-gate protocol's consequence
+  signals apply.
 - An atlas is current only when check mode byte-compares it successfully with a
   fresh render from the named spec, template and review images.
 - Invalid or missing required structure causes the checker to exit nonzero.
