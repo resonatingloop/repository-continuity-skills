@@ -2,7 +2,7 @@
 
 > **Continuity role:** implemented system model
 > **Status:** current
-> **Last verified:** 2026-11-12
+> **Last verified:** 2026-11-06
 > **Owns:** package components, boundaries, workflow routing, and proof layers
 > **Update when:** structural implementation changes
 
@@ -17,12 +17,6 @@ user request
     -> Plan may project one saved spec through the local change-atlas renderer
     -> the Codex router may hand the saved spec to an available visual-companion skill
     -> owner reviews the atlas and explicitly accepts or rejects the canonical spec
-    -> deterministic consequence signals select ordinary proof or an adversarial gate
-    -> semantic preflight reconstructs meaning before editing when triggered
-    -> implementation workflow may produce an actual-change receipt
-    -> a fresh diff adversary attacks broad or boundary-crossing output when triggered
-    -> Close reclassifies realized consequence and validates gate receipts
-    -> transition seal returns closed, partial, or divergent
     -> generic checker validates structured facts
     -> target repository tests prove project-specific semantics
 ```
@@ -36,7 +30,7 @@ additional checks without entering the public package.
 | Component | Path | Responsibility | Public seam |
 |---|---|---|---|
 | Skill router | `skills/manage-project-docs/SKILL.md` | trigger coverage, authorization, operation selection | Codex skill contract |
-| Workflow references | `skills/manage-project-docs/references/` | detailed bootstrap, resume, plan, close, audit, promotion, risk-gate, and transition-seal procedures | direct links from `SKILL.md` |
+| Workflow references | `skills/manage-project-docs/references/` | detailed bootstrap, resume, plan, close, audit and promotion procedures | direct links from `SKILL.md` |
 | Template assets | `skills/manage-project-docs/assets/templates/` | generic document scaffolds copied into target repositories | Markdown files |
 | Change-atlas renderer | `skills/manage-project-docs/scripts/render_change_atlas.py` | safe deterministic owner-facing projection of one canonical spec | static local HTML and exact-output check |
 | Structural checker | `skills/manage-project-docs/scripts/check_docset.py` | repository-independent documentation findings | command-line exit and text output |
@@ -50,15 +44,9 @@ unbootstrapped
     -> draft spec
     -> generated atlas (advisory, current or stale)
     -> owner-accepted spec
-    -> deterministic risk route
-        -> ordinary verification
-        -> semantic preflight (read-only) when triggered
     -> authorized implementation
-    -> diff adversary (read-only) when triggered by realized consequence
-    -> transition seal
-        -> closed -> reconciled checkpoint -> retired spec
-        -> partial -> honest checkpoint -> accepted spec remains active
-        -> divergent -> owner revision, repair, or rollback
+    -> reconciled checkpoint
+    -> retired spec
 ```
 
 `resume` and `audit` observe state without transitioning it. `promote` changes
@@ -89,15 +77,6 @@ the reusable protocol only after a local lesson is classified and generalized.
   embeds only validated local raster review images.
 - Shared updates never automatically overwrite filled downstream documents.
 - Generic clean checks never imply semantic documentation correctness.
-- An actual-change receipt is a transient producer-consumer seam, not a new
-  repository artifact. The implementation workflow describes realized
-  consequence; Close owns promotion and can reconstruct the evidence when the
-  producer is absent.
-- A declared continuity-memory projection is reconciled downstream of
-  repository-owned truth and never becomes authority over it.
-- Risk-gate reviewers never become additional writers. Their findings retain
-  confirmed, inferred, unresolved, or demonstrated-counterexample status until
-  the implementing agent and Close reconcile them against evidence.
 
 the Codex Plan router automatically loads the available `attention-aperture`
 skill for an authorized saved material spec, unless text-only was requested.

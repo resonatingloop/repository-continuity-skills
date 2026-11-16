@@ -28,12 +28,11 @@ authority from filenames alone. Surface unresolved conflicts before editing.
 
 - `skills/manage-project-docs/SKILL.md` owns runtime routing and essential
   instructions for the Codex variant.
-- When present in the local development checkout,
-  `skills-claude/manage-project-docs/SKILL.md` owns the ignored Claude Code
-  adapter's routing; its `references/`, `assets/`, and `scripts/` are relative
-  symlinks into the Codex package, which remains the single owner of shared
-  material. Agent-specific behavior belongs in the variant routers, never in
-  the shared references. The adapter is not part of a fresh tracked clone.
+- `skills-claude/manage-project-docs/SKILL.md` owns the Claude Code variant's
+  routing; its `references/`, `assets/`, and `scripts/` are relative symlinks
+  into the Codex package, which remains the single owner of shared material.
+  Agent-specific behavior belongs in the variant routers, never in the shared
+  references.
 - `skills/manage-project-docs/references/` owns detailed workflow procedures.
 - `skills/manage-project-docs/assets/templates/` contains generic output assets;
   it must not contain private project details.
@@ -60,9 +59,6 @@ Before changing files:
 1. Read the governing documents for the task.
 2. Inspect version-control status.
 3. State the authorized slice and likely proof.
-4. Apply the shared risk-gate protocol. Ordinary verification is the default;
-   deterministic consequence signals, not reviewer self-routing, trigger
-   semantic preflight.
 
 During implementation:
 
@@ -70,19 +66,15 @@ During implementation:
 2. Keep workflows tool-neutral where possible.
 3. Test scripts by executing them against sanitized fixtures.
 4. Do not add personal paths, project names, reports, or private examples.
-5. Keep adversarial reviewers independent and read-only; the implementing agent
-   remains the sole writer.
 
 Before completion:
 
 1. Revisit the accepted spec's change-shape matrix when applicable.
-2. For a material terminal claim, run the transition seal and return `closed`,
-   `partial`, or `divergent`; only `closed` retires an accepted spec.
-3. Reconcile skill instructions, references, assets, scripts, tests, and public docs.
-4. Update `STATUS.md` at a meaningful checkpoint.
-5. Record consequential decisions without manufacturing rationale.
-6. Run the unit tests, document checker, and official skill validator.
-7. Report unresolved unknowns and the next authorized transition.
+2. Reconcile skill instructions, references, assets, scripts, tests, and public docs.
+3. Update `STATUS.md` at a meaningful checkpoint.
+4. Record consequential decisions without manufacturing rationale.
+5. Run the unit tests, document checker, and official skill validator.
+6. Report unresolved unknowns and the next authorized transition.
 
 ## Stop and ask
 

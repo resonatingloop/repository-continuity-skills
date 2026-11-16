@@ -2,7 +2,7 @@
 
 > **Continuity role:** operational front door
 > **Status:** experimental
-> **Last verified:** 2026-11-12
+> **Last verified:** 2026-11-06
 > **Owns:** the public purpose, installation path, lifecycle overview, and documentation map
 > **Update when:** skill installation, supported workflows, maturity, or document authority changes
 
@@ -12,10 +12,9 @@
 
 > that is basically the whole goblin in its polite blazer.
 
-Repository Continuity is a Codex skill and document toolkit for preserving a
-software project's usable state across sessions, collaborators, and periods of
-dormancy. A local development adapter exercises the same workflow core in
-Claude Code but is not part of the tracked public package. The toolkit treats documentation as durable state, approved workflows as
+Repository Continuity is an agent skill and document toolkit — packaged for
+both Codex and Claude Code — for preserving a software project's usable state
+across sessions, collaborators, and periods of dormancy. It treats documentation as durable state, approved workflows as
 state transitions, and executable checks as invariant proofs.
 
 It is not a README generator. It helps an agent bootstrap, resume, plan, close,
@@ -24,14 +23,13 @@ historical intent, current behavior, normative contracts, and proposed work.
 
 ## Current state
 
-The tracked repository contains the installable Codex `manage-project-docs`
-skill under `skills/`, generic document templates, six workflows, a
-risk-triggered adversarial-gate protocol, a transition seal, a
+The repository contains an installable `manage-project-docs` skill in two
+agent-shaped variants (Codex under `skills/`, Claude Code under
+`skills-claude/`), generic document templates, six workflow references, a
 dependency-free structural documentation checker, and a deterministic static
-change-atlas renderer. The local ignored Claude Code adapter has its own
-`SKILL.md` router and reaches the Codex-owned workflow references, templates,
-and scripts through relative symlinks; a fresh clone does not include that
-adapter. The project is an early working version intended for
+change-atlas renderer. The variants differ only in
+their `SKILL.md` router; workflow references, templates, and scripts are owned
+by the Codex package and shared into the Claude variant by relative symlink. The project is an early working version intended for
 local pilots before a stable public release.
 
 See [STATUS.md](STATUS.md) for the verified checkpoint and next work.
@@ -44,12 +42,8 @@ repository state
     -> draft a canonical transition
     -> render its advisory change atlas
     -> explicitly accept or reject the canonical spec
-    -> route risk from deterministic consequence signals
-    -> semantic preflight when triggered
     -> implement by invariant
-    -> fresh diff adversary when triggered
-    -> reconstruct actual consequence
-    -> seal as closed, partial, or divergent
+    -> reconcile and close
     -> new repository state
     -> periodic audit and promoted lessons
 ```
@@ -57,20 +51,6 @@ repository state
 The human or designated project owner approves consequential transitions. The
 skill preserves that authority; discussion and read-only diagnosis do not
 silently become implementation.
-
-For material terminal claims, Close consumes an actual-change receipt from an
-implementation workflow when one exists, or reconstructs it from the final
-diff and proof. The receipt is evidence, not authority: Repository Continuity
-reconciles durable representations and decides whether the slice is `closed`,
-`partial`, or `divergent`. Only `closed` advances the accepted spec to retired.
-
-Adversarial gates are selective rather than ceremonial. Small isolated changes
-receive ordinary verification. Shared state, persistence, migrations,
-authentication, generated interfaces, historically misunderstood identifiers,
-or another declared high-consequence seam can trigger a read-only semantic
-preflight before editing; broad or boundary-crossing realized diffs can trigger
-a fresh diff adversary before commit. Gate selection comes from deterministic
-project evidence, not from asking a review model whether it wants review.
 
 ## Install the skill locally
 
@@ -80,8 +60,7 @@ For Codex, copy the complete skill directory into a Codex skills directory:
 skills/manage-project-docs/ -> ~/.codex/skills/manage-project-docs/
 ```
 
-The development checkout may also contain a local ignored Claude Code adapter.
-When it is present, install it with symlinks dereferenced:
+For Claude Code, copy the Claude variant with symlinks dereferenced:
 
 ```text
 cp -rL skills-claude/manage-project-docs ~/.claude/skills/manage-project-docs
@@ -91,9 +70,6 @@ Keep `SKILL.md`, `references/`, `assets/`, and `scripts/` together (plus
 `agents/` for Codex). The skill directories intentionally have no separate
 README; this repository front door is for humans, while the skill packages
 contain only agent runtime material.
-
-The Claude adapter is not a tracked distribution surface. Do not assume the
-`skills-claude/` path exists in a fresh clone.
 
 Example prompts (Codex uses `$manage-project-docs`, Claude Code
 `/manage-project-docs` or plain natural language):
@@ -180,8 +156,6 @@ Copyright (c) 2026 resonatingloop.
 ## Known limitations
 
 - The skill has not yet been forward-tested against multiple fresh repositories.
-- The risk-gate protocol has one bounded private five-model evaluation; it has
-  not yet been replicated across unrelated repository shapes.
 - The change atlas has not yet been field-tested on the next live owner approval.
 - Review visuals accept local PNG, JPEG and WebP files; arbitrary Markdown HTML,
   remote assets and SVG are deliberately unsupported.

@@ -2,7 +2,7 @@
 
 > **Continuity role:** durable intent
 > **Status:** current
-> **Last verified:** 2026-11-12
+> **Last verified:** 2026-07-15
 > **Owns:** purpose, users, scope, non-goals, constraints, and success
 > **Update when:** project direction changes, not when implementation merely advances
 
@@ -45,10 +45,9 @@ project documents consume or adapt these assets but remain separately owned.
 
 ## Current phase
 
-The current phase forward-tests one compact six-operation skill before a stable
-public release. It is exercising selective risk gates, the transition seal, and
-owner-facing spec projections against sanitized private cases while preserving
-the dependency-free shared workflow core.
+The initial phase must prove that one compact skill can route six continuity
+operations, carry templates without loading them into routine context, and run
+a dependency-free structural checker against both healthy and drifted fixtures.
 
 ## Success
 
